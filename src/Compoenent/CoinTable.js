@@ -91,7 +91,7 @@ const CoinTable = () => {
 
                   return (
                     <TableRow
-                      oClick={() => navigate(`/coins/${row.id}`)}
+                      onClick={() => navigate(`/coins/${row.id}`)}
                       key={row.name}
                       style={{ background: "black", color: "white" }}
                     >
@@ -171,7 +171,21 @@ const CoinTable = () => {
           </Table>
         )}
       </TableContainer>
-      <Pagination count={(handleSearch()?.length / 10).toFixed(0)} />
+      <Pagination
+        count={(handleSearch()?.length / 10).toFixed(0)}
+        style={{
+          padding: "20px",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          // backgroundColor: "black",
+          color: "gold",
+        }}
+        onChange={(_, value) => {
+          setpage(value);
+          window.scroll(0, 450);
+        }}
+      />
     </Container>
   );
 };
